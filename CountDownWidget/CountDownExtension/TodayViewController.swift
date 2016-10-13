@@ -20,7 +20,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        endDate = loadDateIfSaved()
+        guard let date = loadDateIfSaved() else {
+            self.dateLabel.text = "No Date to count from."
+            return
+        }
+        
+        endDate = date
         
         taskManager = Timer(timeInterval: 1, target: self, selector: #selector(TodayViewController.updateCountDown), userInfo: nil, repeats: true)
         RunLoop.main.add(taskManager, forMode: .commonModes)
@@ -31,13 +36,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         taskManager.invalidate()
     }
     
-    private func loadDateIfSaved() -> Date {
+    private func loadDateIfSaved() -> Date? {
         let usrDefaults = UserDefaults.standard
         guard let date = usrDefaults.object(forKey: dateKey) else {
-            usrDefaults.set(endDate, forKey: dateKey)
-            return endDate
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            guard let christmas = dateFormatter.date(from: "25/12/2016") else {
+                return nil
+            }
+            usrDefaults.set(christmas, forKey: dateKey)
+            return christmas
         }
-        return date as! Date
+        return date as? Date
     }
     
     func updateCountDown() {
@@ -45,11 +55,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         let timeInterval = Int(endDate.timeIntervalSince(currentDate as Date))
         
-        let hour = 60*60
-        let seconds = timeInterval % 60
-        let mins = (timeInterval % hour) / 60
-        let hours = timeInterval / hour
+        let min = 60
+        let hour = 60*min
+        let day = 24*hour
+        let days = timeInterval / day
+        let hours = (timeInterval % day) / hour
+        let mins = (timeInterval % hour) / min
+        let seconds = timeInterval % min
         
-        self.dateLabel.text = "\(hours) hours \(mins) minutes \(seconds) seconds"
+        self.dateLabel.text = "\(days) days \n\(hours) hours \n\(mins) minutes \n\(seconds) seconds"
     }
 }

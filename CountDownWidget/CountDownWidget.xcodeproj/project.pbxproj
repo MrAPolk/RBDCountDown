@@ -18,6 +18,7 @@
 		9B26DC431DAF7F340058C787 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26DC421DAF7F340058C787 /* TodayViewController.swift */; };
 		9B26DC461DAF7F340058C787 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B26DC441DAF7F340058C787 /* MainInterface.storyboard */; };
 		9B26DC4A1DAF7F340058C787 /* CountDownExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9B26DC3D1DAF7F340058C787 /* CountDownExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B26DC511DAFCD370058C787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B26DC121DAF7EF70058C787 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B26DC511DAFCD370058C787 /* Assets.xcassets in Resources */,
 				9B26DC461DAF7F340058C787 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +657,7 @@
 				9B26DC321DAF7EF80058C787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B26DC331DAF7EF80058C787 /* Build configuration list for PBXNativeTarget "CountDownWidgetTests" */ = {
 			isa = XCConfigurationList;
@@ -663,6 +666,7 @@
 				9B26DC351DAF7EF80058C787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B26DC361DAF7EF80058C787 /* Build configuration list for PBXNativeTarget "CountDownWidgetUITests" */ = {
 			isa = XCConfigurationList;
@@ -671,6 +675,7 @@
 				9B26DC381DAF7EF80058C787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B26DC4B1DAF7F340058C787 /* Build configuration list for PBXNativeTarget "CountDownExtension" */ = {
 			isa = XCConfigurationList;
@@ -679,6 +684,7 @@
 				9B26DC4D1DAF7F340058C787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
